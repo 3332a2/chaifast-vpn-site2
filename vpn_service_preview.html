@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的服务 - 冰美式 VPN</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function showCard() {
+      const input = prompt("请输入您的卡密，如 VIP-VPN-001 或 VIP-NF-001：");
+      const vpnCard = document.getElementById('vpn-card');
+      const nfCard = document.getElementById('nf-card');
+      if (input && input.toUpperCase().includes('VPN')) {
+        vpnCard.classList.remove('hidden');
+        nfCard.classList.add('hidden');
+      } else if (input && input.toUpperCase().includes('NF')) {
+        nfCard.classList.remove('hidden');
+        vpnCard.classList.add('hidden');
+      } else {
+        alert('无效卡密，请检查格式');
+      }
+    }
+    function copyNetflix() {
+      const info = "账号：netflix_user@protonmail.com\n密码：icevpn2025";
+      navigator.clipboard.writeText(info).then(() => {
+        alert('已复制账号信息');
+      });
+    }
+  </script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
+
+  <img src="/logo.png" alt="冰美式 VPN Logo" class="w-20 h-20 mb-4">
+  <button onclick="showCard()" class="mb-6 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 rounded text-white font-semibold">
+    输入卡密查看服务
+  </button>
+
+  <!-- VPN 卡片 -->
+  <div id="vpn-card" class="hidden w-full max-w-md p-6 bg-gray-800 rounded-xl shadow-lg mb-10">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold mb-2">VPN 专线服务</h2>
+      <p class="text-sm text-gray-300">🟢 状态：已激活</p>
+      <p class="text-sm text-gray-300">📅 到期时间：2025-12-31</p>
+      <a href="hysteria://example.com:443?obfs=faketcp&peer=example.com&insecure=1#韩国高速线路"
+         class="mt-4 inline-block px-4 py-2 bg-green-500 hover:bg-green-600 rounded text-black font-semibold">
+         一键导入配置
+      </a>
+      <p class="text-xs text-gray-400 mt-2">支持 Shadowrocket / Clash / Surfboard</p>
+    </div>
+  </div>
+
+  <!-- Netflix 卡片 -->
+  <div id="nf-card" class="hidden w-full max-w-md p-6 bg-gray-800 rounded-xl shadow-lg">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold mb-2">Netflix 合租账号</h2>
+      <p class="text-sm text-gray-300">🔒 状态：有效</p>
+      <p class="text-sm text-gray-300">👤 登录邮箱：netflix_user@protonmail.com</p>
+      <p class="text-sm text-gray-300">🔑 登录密码：icevpn2025</p>
+      <button onclick="copyNetflix()" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded font-semibold">复制账号信息</button>
+      <p class="text-xs text-gray-400 mt-2">请勿修改密码，账号共享使用</p>
+    </div>
+  </div>
+
+  <div class="absolute top-4 right-4">
+    <a href="index.html" class="text-sm text-gray-400 hover:text-white">← 返回首页</a>
+  </div>
+
+</body>
+</html>
