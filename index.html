@@ -1,1 +1,103 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><title>冰美式 VPN - 首页</title></head><body><h1>冰美式 VPN - 首页</h1></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冰美式 VPN - 稳定安全的科学上网服务</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background-color: #0e1a2b; color: #fff; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; background-color: #121f33; position: sticky; top: 0; z-index: 10; }
+    header nav a { color: #fff; margin-left: 2rem; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    header nav a:hover { color: #2dd4bf; }
+    .hero { display: flex; justify-content: space-between; align-items: center; padding: 4rem 2rem; background: linear-gradient(to right, #1f2937, #0e1a2b); }
+    .hero-text { max-width: 50%; }
+    .hero-text h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero-text p { font-size: 1.2rem; margin-bottom: 2rem; color: #cbd5e1; }
+    .hero-text button { padding: 0.75rem 1.5rem; background-color: #2dd4bf; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s; }
+    .hero-text button:hover { background-color: #14b8a6; }
+    .quick-links { display: flex; justify-content: center; gap: 2rem; padding: 2rem; background-color: #1e293b; }
+    .quick-links a { background-color: #334155; padding: 1rem 2rem; border-radius: 8px; color: #fff; text-decoration: none; transition: transform 0.3s; }
+    .quick-links a:hover { transform: translateY(-4px); background-color: #475569; }
+    .plans { padding: 4rem 2rem; display: flex; justify-content: center; gap: 2rem; }
+    .plan-card { background-color: #1e293b; border-radius: 12px; padding: 2rem; width: 300px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+    .plan-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .plan-card p { color: #cbd5e1; margin: 0.5rem 0; }
+    .plan-card button { margin-top: 1rem; background-color: #2dd4bf; color: #000; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; }
+    .faq, .payment, footer { padding: 2rem; background-color: #0f172a; }
+    .faq h2, .payment h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .faq p, .payment p { margin-bottom: 1rem; color: #94a3b8; }
+    footer { text-align: center; color: #64748b; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">冰美式 VPN</div>
+    <nav>
+      <a href="#plans">套餐价格</a>
+      <a href="#faq">常见问题</a>
+      <a href="#contact">联系客服</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>科学上网，从冰美式开始</h1>
+      <p>稳定 · 极速 · 安全 · 无日志记录，多平台支持，轻松翻墙。</p>
+      <button onclick="window.location.href='#plans'">立即订阅</button>
+    </div>
+    <div class="hero-image"></div>
+  </section>
+
+  <div class="quick-links">
+    <a href="index.html">VPN服务</a>
+    <a href="netflix.html">奈非账号</a>
+    <a href="gpt.html">GPT账号</a>
+    <a href="yt.html">YouTube会员</a>
+  </div>
+
+  <section class="plans" id="plans">
+    <div class="plan-card">
+      <h3>月付套餐</h3>
+      <p>¥29/月</p>
+      <p>韩国/日本专线</p>
+      <p>高稳定支持</p>
+      <button>立即订阅</button>
+    </div>
+    <div class="plan-card">
+      <h3>季付套餐</h3>
+      <p>¥69/季</p>
+      <p>支持全平台</p>
+      <p>高速节点任选</p>
+      <button>立即订阅</button>
+    </div>
+    <div class="plan-card">
+      <h3>年付套餐</h3>
+      <p>¥199/年</p>
+      <p>7x24在线支持</p>
+      <p>售后无忧</p>
+      <button>立即订阅</button>
+    </div>
+  </section>
+
+  <section class="payment">
+    <h2>支付方式</h2>
+    <p>微信支付 | 支付宝</p>
+    <p>付款后自动发卡 / 客服辅助绑定</p>
+    <p>服务保障：退款支持、快速售后</p>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>常见问题</h2>
+    <p><strong>支持哪些平台？</strong> iOS、Android、Windows、Mac、Clash等</p>
+    <p><strong>是否自动发货？</strong> 付款后自动跳转或邮件发卡</p>
+    <p><strong>是否可退款？</strong> 正常使用问题支持退款保障</p>
+  </section>
+
+  <footer id="contact">
+    © 2025 冰美式 VPN - chaifast.cc | 联系方式：Telegram / 微信客服
+  </footer>
+</body>
+</html>
