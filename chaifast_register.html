@@ -3,70 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>注册账户 - 冰美式 VPN</title>
+  <title>冰美式 VPN 登录/注册</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
-    let countdown = 60;
-    let timer;
-    function startCountdown(button) {
-      if (countdown === 60) {
-        button.disabled = true;
-        button.innerText = `重新发送 (${countdown}s)`;
-        timer = setInterval(() => {
-          countdown--;
-          if (countdown > 0) {
-            button.innerText = `重新发送 (${countdown}s)`;
-          } else {
-            clearInterval(timer);
-            button.innerText = '发送验证码';
-            button.disabled = false;
-            countdown = 60;
-          }
-        }, 1000);
+    function toggleForm(mode) {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      if (mode === 'login') {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+      } else {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
       }
     }
   </script>
 </head>
-<body class="bg-[#0f172a] text-white flex justify-center items-center min-h-screen">
-  <div class="bg-[#1e2633] shadow-2xl rounded-2xl w-full max-w-md p-8">
+<body style="background-color:#0f172a; color:white;" class="flex justify-center items-center min-h-screen">
+  <div style="background-color:#1e2633; max-width:420px;" class="shadow-2xl rounded-2xl w-full p-8">
     <div class="text-center mb-6">
       <img src="/logo.png" alt="冰美式 VPN" class="w-16 h-16 mx-auto mb-2">
-      <h1 class="text-3xl font-extrabold text-[#20e3b2]">冰美式 VPN</h1>
+      <h1 class="text-3xl font-extrabold" style="color:#20e3b2;">冰美式 VPN</h1>
       <p class="text-sm text-gray-400">ChaiFast VPN</p>
     </div>
-    <h2 class="text-xl font-semibold mb-4">注册</h2>
-    <div class="mb-3">
-      <label class="block text-sm font-medium text-gray-200 mb-1">邮箱地址</label>
-      <div class="flex">
-        <input type="text" placeholder="请输入邮箱前缀" class="flex-1 px-4 py-2 rounded-l bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
-        <select class="px-4 py-2 rounded-r bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
-          <option>@gmail.com</option>
-          <option>@outlook.com</option>
-          <option>@qq.com</option>
-        </select>
+
+    <!-- 登录表单 -->
+    <div id="login-form">
+      <h2 class="text-xl font-semibold mb-4">登录账户</h2>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-200 mb-1">邮箱</label>
+        <input type="email" placeholder="请输入邮箱" class="w-full px-4 py-2 rounded border border-gray-600 text-white focus:outline-none focus:ring-2" style="background-color:#2a3342; border-color:#4b5563;">
       </div>
-    </div>
-    <div class="mb-3">
-      <label class="block text-sm font-medium text-gray-200 mb-1">验证码</label>
-      <div class="flex">
-        <input type="text" placeholder="请输入验证码" class="flex-1 px-4 py-2 rounded-l bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
-        <button onclick="startCountdown(this)" class="px-5 py-2 bg-[#20e3b2] text-black border border-[#20e3b2] rounded-r font-bold tracking-wider hover:bg-[#2cd3ba] transition duration-150">发送验证码</button>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-200 mb-1">密码</label>
+        <input type="password" placeholder="请输入密码" class="w-full px-4 py-2 rounded border border-gray-600 text-white focus:outline-none focus:ring-2" style="background-color:#2a3342; border-color:#4b5563;">
       </div>
+      <button class="w-full py-2 rounded-lg font-bold text-center hover:brightness-110 transition duration-150" style="background-color:#20e3b2; color:black; border:1px solid #20e3b2;">立即登录</button>
+      <p class="text-sm text-gray-400 text-center mt-4">还没有账户？<a href="#" onclick="toggleForm('register')" class="text-[#20e3b2] font-semibold"> 注册新账户</a></p>
     </div>
-    <div class="mb-3">
-      <label class="block text-sm font-medium text-gray-200 mb-1">密码</label>
-      <input type="password" placeholder="请输入密码" class="w-full px-4 py-2 rounded bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
+
+    <!-- 注册表单 -->
+    <div id="register-form" class="hidden">
+      <h2 class="text-xl font-semibold mb-4">注册账户</h2>
+      <div class="mb-3">
+        <label class="block text-sm font-medium text-gray-200 mb-1">邮箱地址</label>
+        <div class="flex">
+          <input type="text" placeholder="请输入邮箱前缀" class="flex-1 px-4 py-2 rounded-l bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
+          <select class="px-4 py-2 rounded-r bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
+            <option>@gmail.com</option>
+            <option>@outlook.com</option>
+            <option>@qq.com</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="block text-sm font-medium text-gray-200 mb-1">验证码</label>
+        <div class="flex">
+          <input type="text" placeholder="请输入验证码" class="flex-1 px-4 py-2 rounded-l bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
+          <button class="px-5 py-2 bg-[#20e3b2] text-black border border-[#20e3b2] rounded-r font-bold tracking-wider hover:bg-[#2cd3ba] transition duration-150">发送验证码</button>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="block text-sm font-medium text-gray-200 mb-1">密码</label>
+        <input type="password" placeholder="请输入密码" class="w-full px-4 py-2 rounded bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
+      </div>
+      <div class="mb-3">
+        <label class="block text-sm font-medium text-gray-200 mb-1">确认密码</label>
+        <input type="password" placeholder="请再次输入密码" class="w-full px-4 py-2 rounded bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-200 mb-1">邀请码（选填）</label>
+        <input type="text" value="" class="w-full px-4 py-2 rounded bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
+      </div>
+      <button class="w-full py-2 bg-[#20e3b2] text-black border border-[#20e3b2] rounded-lg font-bold text-center hover:bg-[#2cd3ba] transition duration-150">创建账号</button>
+      <p class="text-sm text-gray-400 text-center mt-4">已有账户？<a href="#" onclick="toggleForm('login')" class="text-[#20e3b2] font-semibold"> 立即登录</a></p>
     </div>
-    <div class="mb-3">
-      <label class="block text-sm font-medium text-gray-200 mb-1">确认密码</label>
-      <input type="password" placeholder="请再次输入密码" class="w-full px-4 py-2 rounded bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
-    </div>
-    <div class="mb-4">
-      <label class="block text-sm font-medium text-gray-200 mb-1">邀请码（选填）</label>
-      <input type="text" value="9spq5Jz" class="w-full px-4 py-2 rounded bg-[#2a3342] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-[#20e3b2]">
-    </div>
-    <button class="w-full py-2 bg-[#20e3b2] text-black border border-[#20e3b2] rounded-lg font-bold text-center hover:bg-[#2cd3ba] transition duration-150">创建账号</button>
-    <p class="text-xs text-gray-500 text-center mt-4">注册即表示您同意我们的 <a href="#" class="underline">服务条款</a> 和 <a href="#" class="underline">隐私政策</a></p>
   </div>
 </body>
 </html>
